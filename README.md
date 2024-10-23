@@ -36,9 +36,30 @@ The application is live and can be accessed at:
 - **External users can verify the letter by scanning the QR code, which will direct them to a verification page.
 
 ## Screenshots
-1. **Homepage
+### 1. **Dashboard**
+![Dashboard Screenshot](screenshots/dashboard.jpg)
 
-2. **Letter Request Form
+### 2. **Homepage**
+![Home Screenshot](screenshots/home.jpg)
 
-3. **QR Code Verification
+### 3. **Layanan Form**
+![Layanan Form Screenshot](screenshots/layanan_form.jpg)
+
+### 4. **Layanan**
+![Layanan Screenshot](screenshots/layanan.jpg)
+
+### 5. **Login**
+![Login Screenshot](screenshots/login.jpg)
+
+### 6. **Profil**
+![Profil Screenshot](screenshots/profil.jpg)
+
+### 7. **Riwayat Detail**
+![Riwayat Detail Screenshot](screenshots/riwayat_detail.jpg)
+
+### 8. **Riwayat**
+![Riwayat Screenshot](screenshots/riwayat.jpg)
+
+### 9. **Surat**
+![Surat Screenshot](screenshots/surat.jpg)
 
