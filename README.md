@@ -1,11 +1,30 @@
-# Web Permintaan Surat Keterangan Aktif Kuliah
+# Academic Enrollment Letter Request System with QR Code Verification
 
-## Panduan Penggunaan
+This web-based application is designed to streamline the process of requesting an official academic enrollment letter, commonly used by students for administrative purposes. The system integrates QR code verification, allowing administrators and external parties to verify the authenticity of the issued letters.
+
+## Features
+
+- **User Authentication**: Secure login for students, administrators, and external users.
+- **Enrollment Letter Request**: Students can submit requests for academic enrollment letters with a user-friendly interface.
+- **Generate PDF Letters**: Automatically generate letters based on the data of the student who submitted the request.
+- **QR Code Generation**: Automatically generates a unique QR code for each issued letter, ensuring authenticity.
+- **QR Code Verification**: External parties and administrators can scan the QR code to verify the letter.
+- **Letter Management**: Administrators can approve or reject requests and manage all letters issued.
+- **Responsive Design**: Accessible from both desktop and mobile devices.
+
+## Tech Stack
+
+- **Frontend**: HTML, Preline CSS, JavaScript
+- **Backend**: Node.js, Express.js
+- **Database**: MySQL (or any other relational database)
+- **QR Code Library**: QRCode.js
+- **Authentication**: JWT (JSON Web Token)
+- **Cloud Hosting**: Alibaba Cloud Virtual Machine (CentOS)
 
 1. **Clone repo ini**
 
    ```bash
-   git clone https://github.com/Nopallse/tb_pweb_kelompok_7
+   git clone https://github.com/Nopallse/Academic-Enrollment-Letter-Request-System-with-QR-Code-Verification
    ```
 
 2. **Install semua depedensi yang diperlukan**
@@ -35,19 +54,18 @@
 
    ```
 
-6. **Untuk push perubahan silahkan buatlah branch baru terlebih dahulu**
+## Usage
 
-   ```bash
-   git checkout (nama_branch)
-   git add .
-   git commit -m "lihat profil"
-   git push -u origin (nama_branch)
-   ```
+- **Access the login page and sign in as a student or administrator.
+- **Students can request an academic enrollment letter by filling out a form.
+- **Once the letter is approved, a QR code is generated and embedded in the letter.
+- **Administrators can view, approve, or reject the requests.
+- **External users can verify the letter by scanning the QR code, which will direct them to a verification page.
 
-## Pembagian Tugas
+## Screenshots
+1. **Homepage
 
-1. Authentikasi - Naufal ✅
-2. Logout - Naufal ✅
-3. Lihat Profil untuk mahasiswa dan admin Alfa Rian✅
-4. Fungsionalitas Ubah Kata Sandi Fajrin Putra Pratama✅
+2. **Letter Request Form
+
+3. **QR Code Verification
 
