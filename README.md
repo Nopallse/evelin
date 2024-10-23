@@ -2,6 +2,11 @@
 
 This web-based application is designed to streamline the process of requesting an official academic enrollment letter, commonly used by students for administrative purposes. The system integrates QR code verification, allowing administrators and external parties to verify the authenticity of the issued letters.
 
+## Live Demo
+
+The application is live and can be accessed at:
+**[aktifkuliah.techfuture.my.id](https://aktifkuliah.techfuture.my.id/)**
+
 ## Features
 
 - **User Authentication**: Secure login for students, administrators, and external users.
@@ -21,38 +26,6 @@ This web-based application is designed to streamline the process of requesting a
 - **Authentication**: JWT (JSON Web Token)
 - **Cloud Hosting**: Alibaba Cloud Virtual Machine (CentOS)
 
-1. **Clone repo ini**
-
-   ```bash
-   git clone https://github.com/Nopallse/Academic-Enrollment-Letter-Request-System-with-QR-Code-Verification
-   ```
-
-2. **Install semua depedensi yang diperlukan**
-
-   ```bash
-   npm install
-   ```
-
-3. **Lakukan migrasi tabel dari Express ke MySQL**
-
-   ```bash
-   npx sequelize-cli db:migrate
-
-   ```
-
-4. **Jalankan seeder untuk mengirim data contoh ke dbL**
-
-   ```bash
-   npx sequelize-cli db:seed:all
-   ```
-
-5. **Jalankan Express dengan perintah**
-
-   ```bash
-   npx tailwindcss -i ./src/input.css -o ./assets/output.css --watch
-   nodemon
-
-   ```
 
 ## Usage
 
