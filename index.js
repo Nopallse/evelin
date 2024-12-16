@@ -4,14 +4,12 @@ const db = require('./config/database.js');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index.js');
-const userRouter = require('./routes/userRoute.js');
-const adminRouter = require('./routes/adminRoute.js');
+const userRouter = require('./routes/userRouter.js');
 const http = require("http");
 const socketio = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-const { encrypt } = require('./controllers/encryptionController.js');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -33,10 +31,6 @@ io.on('connection', (socket) => {
 });
 
 
-app.use((req, res, next) => {
-  res.locals.encrypt = encrypt; 
-  next();
-});
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -44,7 +38,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'src')));
+
 app.use('/preline', express.static(path.join(__dirname, 'node_modules/preline/dist')));
 app.use('/sweet', express.static(path.join(__dirname, 'node_modules/sweetalert2/dist')));
 
@@ -63,7 +58,6 @@ testDatabaseConnection();
 
 app.use('/', indexRouter);
 app.use('/', userRouter);
-app.use('/admin', adminRouter);
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {

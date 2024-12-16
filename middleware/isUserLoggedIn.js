@@ -8,7 +8,6 @@ const isUserLoggedIn = async (req, res, next) => {
     try {
       const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
       if (decoded) {
-        
         return res.redirect('/');
       }
     } catch (error) {

@@ -3,8 +3,6 @@ const Users = require("../models/UserModel.js");
 const bcrypt = require("bcryptjs");
 const fs = require('fs/promises');
 const multer = require('multer');
-const Admin = require('../models/AdminModel.js');
-const Mahasiswa = require('../models/MahasiswaModel.js');
 const { where } = require('sequelize');
 
 
@@ -28,18 +26,14 @@ const Login = async (req, res) => {
     }
 
     const userId = user.id;
-    const name = user.name;
-    const email = user.email;
     const role = user.role;
-    const nim = user.nim;
-    const hp = user.hp;
-    const departemen = user.departemen;
+   
 
-    const token = jwt.sign({ userId, name, email, role, nim, hp, departemen }, process.env.ACCESS_TOKEN_SECRET, {
+    const token = jwt.sign({ userId,role}, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "15m",
     });
 
-    const refreshToken = jwt.sign({ userId, name, email, role, nim, hp, departemen }, process.env.REFRESH_TOKEN_SECRET, {
+    const refreshToken = jwt.sign({ userId, role }, process.env.REFRESH_TOKEN_SECRET, {
       expiresIn: "7d",
     });
 
@@ -57,7 +51,14 @@ const Login = async (req, res) => {
     res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
     console.log("Login berhasil");
 
-    res.status(200).json({ message: 'Login berhasil', role: user.role });
+
+    if (user.role === 'user') {
+      res.redirect('/dashboard');
+    } else if (user.role === 'admin') {
+      res.redirect('/admin/dashboard');
+    }
+    
+
   } catch (error) {
     console.log(error);
     res.status(401).json(error.message);
@@ -110,7 +111,6 @@ function checkUserLoggedIn(req) {
             const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
             user = {
                 userId: decoded.userId,
-                email: decoded.email,
                 role: decoded.role,
             };
             
@@ -236,6 +236,7 @@ const uploadProfilePicture = async (req, res) => {
   });
 };
 
+
 module.exports = {
   Login,
   Logout,
@@ -245,5 +246,5 @@ module.exports = {
   getUser,
   getAdmin,
   getMahasiswa,
-  uploadProfilePicture
+  uploadProfilePicture,
 };

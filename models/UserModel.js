@@ -9,10 +9,19 @@ const Users = db.define('users', {
         primaryKey: true,
         autoIncrement: true
     },
+    name: {
+        type: DataTypes.STRING
+    },
     email: {
         type: DataTypes.STRING
     },
     password: {
+        type: DataTypes.STRING
+    },
+    company: {
+        type: DataTypes.STRING
+    },
+    position: {
         type: DataTypes.STRING
     },
     role: {

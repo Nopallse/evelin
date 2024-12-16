@@ -49,7 +49,7 @@ const verifyToken = (role) => async (req, res, next) => {
   
   if (role && req.userRole !== role) {
     if (req.userRole === "mahasiswa") {
-      return res.redirect("/home");
+      return res.redirect("/layanan");
     } else if (req.userRole === "admin") {
       return res.redirect("/admin/dashboard");
     }

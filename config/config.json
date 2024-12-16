@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "aktif_kuliah",
+    "database": "coworking",
     "host": "localhost",
     "dialect": "mysql"
   },
